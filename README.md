@@ -1,2 +1,2 @@
 # test_task
-test task
+проверял на openserver в phpmyadmin на localhost
