@@ -6,10 +6,10 @@
     <title>test</title>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/form.js"></script>
-    <script type="text/javascript" src="js/controlNumEnter.js"></script>
+    <script type="text/javascript" src="js/maskPhone.js"></script>
 </head>
 
-<body style="text-align: center; top: 40%">
+<body style="text-align: center;">
 
     <h1>Заполните данные о себе</h1>
     <div id="container"></div>
@@ -21,8 +21,7 @@
         <p><input type="email" name="email" placeholder="Введите почту" required></p>
 
         <p>Номер телефона (формат +7)</p>
-        <p><input type="tel" data-tel-input id="tel" name="tel" maxlength="18" minlength="18"
-                placeholder="+7(___)___-__-__" required /></p>
+        <p><input type="tel" data-tel-input id="tel" name="tel" maxlength="18" minlength="18" placeholder="+7(___)___-__-__" required /></p>
 
         <p><input type="submit" value="Отправить" name="formSubmit"></p>
     </form>

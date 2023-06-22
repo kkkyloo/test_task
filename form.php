@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("test.host", "root", "");
+$conn = new mysqli("localhost", "root", "");
 
 
 $sql = 'SELECT COUNT(*) AS `exists` FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMATA.SCHEMA_NAME="testdb"';
@@ -13,27 +13,19 @@ $dbExists = (bool) $row->exists;
 if (!$dbExists) {
     $sql = "CREATE DATABASE IF NOT EXISTS testdb";
 
-    if (mysqli_query($conn, $sql)) {
-
-    } else {
-
-    }
+    mysqli_query($conn, $sql);
 }
 
 mysqli_close($conn);
 
-$conn = new mysqli("test.host", "root", "", "testdb");
+$conn = new mysqli("localhost", "root", "", "testdb");
 
 if ($conn->connect_error) {
     die("Ошибка: " . $conn->connect_error);
 }
+
 $sql = "CREATE TABLE IF NOT EXISTS testTable (id INTEGER AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30), email VARCHAR(30), phone VARCHAR(20), created datetime);";
-if (mysqli_query($conn, $sql)) {
-
-} else {
-
-}
-
+mysqli_query($conn, $sql);
 
 $match = 0;
 
@@ -73,7 +65,6 @@ if ($result) {
     }
 }
 
-
 if ($match == 0) {
 
     $return = true;
@@ -82,9 +73,6 @@ if ($match == 0) {
     echo $return;
 
 }
-
-
-
 
 mysqli_close($conn);
 
